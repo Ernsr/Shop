@@ -1,0 +1,53 @@
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+    <div layout:fragment="mainContent">
+        <section class="bestsellers">
+            <div class="container_fill">
+                <div class="newitems_header">
+                    <div class="newitems_title">
+                        Хиты продаж
+                    </div>
+                    <div class="newitems_look">
+                        <a href="#">
+                            Cмотреть всё
+                            <img th:src="@{'/icon/Vector 8.png'}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="bestsellers_cards">
+                    <div class="bestsellers_card" th:each="nw : ${newitem}">
+                        <input type="hidden" name="id" th:value="${nw.id}">
+                        <div class="bestsellers_card-img">
+                            <div class="bestsellers_card-jpg">
+                                <img th:src="@{'/image/' + ${nw.newitemcardimg}}" alt="">
+<!--                                <div class="bestsellers_card-favorites">-->
+<!--                                    <img th:src="@{'/image/' + ${ts.cardimg}}" alt="">-->
+<!--                                </div>-->
+                                <div class="bestsellers_card-sale">
+                                    <div class="bestsellers_sale-title">
+                                        -25%
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popular_content">
+                            <div class="popular_card-title">
+                                <a href="#" th:text="${nw.title}"></a>
+                            </div>
+                            <div class="popular_card-item">
+                                <a href="#" th:text="${nw.name}"></a>
+                            </div>
+                            <div class="popular_card-price" th:text="${nw.price}">
+                                <div class="addTshirt__tg">тг</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</html>

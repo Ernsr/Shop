@@ -1,0 +1,15 @@
+package er.shop.ernst.erinshop.repositories;
+
+import er.shop.ernst.erinshop.entities.Sweetshirts;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import javax.transaction.Transactional;
+
+@Repository
+@Transactional
+public interface SweetshirtRepository extends JpaRepository<Sweetshirts, Long> {
+
+    Sweetshirts findByTitle(String title);
+
+}

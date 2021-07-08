@@ -1,0 +1,194 @@
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+    <div layout:fragment="mainContent">
+        <section class="bestsellers">
+            <div class="container_fill">
+                <div class="newitems_header">
+                    <div class="newitems_title">
+                        Хиты продаж
+                    </div>
+                    <div class="newitems_look">
+                        <a href="#">
+                            Cмотреть всё
+                            <img th:src="@{'/icon/Vector 8.png'}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="bestsellers_cards">
+                    <div class="bestsellers_items">
+                        <div class="bestsellers_card">
+                            <div class="bestsellers_card-img">
+                                <div class="bestsellers_card-jpg">
+                                    <img th:src="@{'/img/5.jpg'}" alt="">
+                                    <div class="bestsellers_card-favorites">
+                                        <button class="btn">
+                                            <img th:src="@{'/icon/Vector 3.png'}" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="bestsellers_card-sale">
+                                        <div class="bestsellers_sale-title">
+                                            -25%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popular_content">
+                                <div class="popular_card-title">
+                                    <a href="#">
+                                        Armani Exchange
+                                    </a>
+                                </div>
+                                <div class="popular_card-item">
+                                    <a href="#">
+                                        Футболка
+                                    </a>
+                                </div>
+                                <div class="popular_card-price">
+                                    12 590 тг
+                                </div>
+                            </div>
+                            <!-- <div class="backBlock">
+                                <button class="back_block_btn">
+                                    <div class="back_block_title">
+                                        Подробнее
+                                        <img src="./img/Vector 8.png" alt="">
+                                    </div>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="bestsellers_items">
+                        <div class="bestsellers_card">
+                            <div class="bestsellers_card-img">
+                                <div class="bestsellers_card-jpg">
+                                    <img th:src="@{'/img/5.jpg'}" alt="">
+                                    <div class="bestsellers_card-favorites">
+                                        <button class="btn">
+                                            <img th:src="@{'/icon/Vector 3.png'}" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="bestsellers_card-sale">
+                                        <div class="bestsellers_sale-title">
+                                            -50%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popular_content">
+                                <div class="popular_card-title">
+                                    <a href="#">
+                                        Armani Exchange
+                                    </a>
+                                </div>
+                                <div class="popular_card-item">
+                                    <a href="#">
+                                        Футболка
+                                    </a>
+                                </div>
+                                <div class="popular_card-price">
+                                    12 590 тг
+                                </div>
+                            </div>
+                            <!-- <div class="backBlock">
+                                <button class="back_block_btn">
+                                    <div class="back_block_title">
+                                        Подробнее
+                                        <img src="./img/Vector 8.png" alt="">
+                                    </div>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="bestsellers_items">
+                        <div class="bestsellers_card">
+                            <div class="bestsellers_card-img">
+                                <div class="bestsellers_card-jpg">
+                                    <img src="./img/5.jpg" alt="">
+                                    <div class="bestsellers_card-favorites">
+                                        <button class="btn">
+                                            <img src="./img/Vector 3.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="bestsellers_card-sale">
+                                        <div class="bestsellers_sale-title">
+                                            -50%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="popular_content">
+                                <div class="popular_card-title">
+                                    <a href="#">
+                                        Armani Exchange
+                                    </a>
+                                </div>
+                                <div class="popular_card-item">
+                                    <a href="#">
+                                        Футболка
+                                    </a>
+                                </div>
+                                <div class="popular_card-price">
+                                    12 590 тг
+                                </div>
+                            </div>
+                            <!-- <div class="backBlock">
+                                <button class="back_block_btn">
+                                    <div class="back_block_title">
+                                        Подробнее
+                                        <img src="./img/Vector 8.png" alt="">
+                                    </div>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="bestsellers_items">
+                        <div class="bestsellers_card">
+                            <div class="bestsellers_card-img">
+                                <div class="bestsellers_card-jpg">
+                                    <img src="./img/5.jpg" alt="">
+                                    <div class="bestsellers_card-favorites">
+                                        <button class="btn">
+                                            <img src="./img/Vector 3.png" alt="">
+                                        </button>
+                                    </div>
+                                    <div class="bestsellers_card-sale">
+                                        <div class="bestsellers_sale-title">
+                                            -20%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="popular_content">
+                            <div class="popular_card-title">
+                                <a href="#">
+                                    Armani Exchange
+                                </a>
+                            </div>
+                            <div class="popular_card-item">
+                                <a href="#">
+                                    Футболка
+                                </a>
+                            </div>
+                            <div class="popular_card-price">
+                                12 590 тг
+                            </div>
+                        </div>
+                        <!-- <div class="backBlock">
+                            <button class="back_block_btn">
+                                <div class="back_block_title">
+                                    Подробнее
+                                    <img src="./img/Vector 8.png" alt="">
+                                </div>
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+</html>

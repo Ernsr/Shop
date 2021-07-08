@@ -1,0 +1,49 @@
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+    <div layout:fragment="mainContent">
+        <div class="row mt-5">
+            <div class="col-6 mx-auto">
+                <form th:action="@{'/admin/savecategory'}" method="post" th:if="${categories!=null}" class="mb-5">
+                    <input type="hidden" name="id" th:value="${categories.id}">
+                    <div class="mt-2">
+                        <label>
+                            NAME:
+                        </label>
+                        <input type="text" class="form-control mt-2" name = "category_name" th:value="${categories.name}">
+                    </div>
+                    <div class="mt-5">
+                        <button class="btn btn-success">SAVE CATEGORY</button>
+                        <button type="button" class="btn btn-danger ml-2" data-bs-toggle="modal" data-bs-target="#deleteCityModal">
+                            DELETE CATEGORY
+                        </button>
+                    </div>
+                </form>
+
+                <div class="modal fade" id="deleteCityModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form th:action="@{'/admin/deletecategory'}" method="post">
+                                <input type="hidden" name="id" th:value="${categories.id}">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Delete CATEGORY</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                                    <button class="btn btn-danger">YES</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

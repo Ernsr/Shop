@@ -1,0 +1,70 @@
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div layout:fragment="mainContent">
+     <div class="row mt-5 mb-5">
+            <div class="col-6 mx-auto">
+                <form th:action="@{'/admin/addnewitem'}" method="post">
+                    <div class="mt-3">
+                        <label>
+                            TITLE :
+                        </label>
+                        <input type="text" class="form-control mt-2" name="newitem_title" required>
+                    </div>
+                    <div class="mt-3">
+                        <label>
+                            NAME :
+                        </label>
+                        <input type="text" class="form-control mt-2" name="newitem_name" required>
+                    </div>
+                    <div class="mt-3">
+                        <label>
+                            PRICE :
+                        </label>
+                        <input type="text" class="form-control mt-2" name="newitem_price" required>
+                    </div>
+                    <div class="mt-3">
+                        <div class="col-12">
+                            <button class="btn btn-success">
+                                Add New Item
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+
+                <div class="container_fill">
+                    <div class="bestsellers_cards">
+                        <div class="bestsellers_card" th:each="nw : ${newitem}">
+                            <input type="hidden" name="id" th:value="${nw.id}">
+                            <div class="bestsellers_card-img">
+                                <div class="bestsellers_card-jpg">
+                                    <img th:src="@{'/image/' + ${nw.newitemcardimg}}" alt="">
+<!--                                    <div class="bestsellers_card-sale">-->
+<!--                                        <div class="bestsellers_sale-title">-->
+<!--                                            -25%-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                            <div class="popular_content">
+                                <div class="popular_card-title">
+                                    <a href="#" th:text="${nw.title}"></a>
+                                </div>
+                                <div class="popular_card-item">
+                                    <a href="#" th:text="${nw.name}"></a>
+                                </div>
+                                <div class="popular_card-price" th:text="${nw.price}">
+                                    <div class="addTshirt__tg">тг</div>
+                                </div>
+                            </div>
+                            <a th:href="@{'/admin/detailsnewitem/'+${nw.id}}" class="btn btn-primary btn-sm">DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

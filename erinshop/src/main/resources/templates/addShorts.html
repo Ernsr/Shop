@@ -1,0 +1,70 @@
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<div layout:fragment="mainContent">
+     <div class="row mt-5 mb-5">
+            <div class="col-6 mx-auto">
+                <form th:action="@{'/admin/addshort'}" method="post">
+                    <div class="mt-3">
+                        <label>
+                            TITLE :
+                        </label>
+                        <input type="text" class="form-control mt-2" name="short_title" required>
+                    </div>
+                    <div class="mt-3">
+                        <label>
+                            NAME :
+                        </label>
+                        <input type="text" class="form-control mt-2" name="short_name" required>
+                    </div>
+                    <div class="mt-3">
+                        <label>
+                            PRICE :
+                        </label>
+                        <input type="text" class="form-control mt-2" name="short_price" required>
+                    </div>
+                    <div class="mt-3">
+                        <div class="col-12">
+                            <button class="btn btn-success">
+                                Add new SHORT
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+
+                <div class="container_fill">
+                    <div class="bestsellers_cards">
+                        <div class="bestsellers_card" th:each="st : ${shorts}">
+                            <input type="hidden" name="id" th:value="${st.id}">
+                            <div class="bestsellers_card-img">
+                                <div class="bestsellers_card-jpg">
+                                    <img th:src="@{'/image/' + ${st.shortcardimg}}" alt="">
+<!--                                    <div class="bestsellers_card-sale">-->
+<!--                                        <div class="bestsellers_sale-title">-->
+<!--                                            -25%-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                </div>
+                            </div>
+                            <div class="popular_content">
+                                <div class="popular_card-title">
+                                    <a href="#" th:text="${st.title}"></a>
+                                </div>
+                                <div class="popular_card-item">
+                                    <a href="#" th:text="${st.name}"></a>
+                                </div>
+                                <div class="popular_card-price" th:text="${st.price}">
+                                    <div class="addTshirt__tg">тг</div>
+                                </div>
+                            </div>
+                            <a th:href="@{'/admin/detailsshort/'+${st.id}}" class="btn btn-primary btn-sm">DETAILS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

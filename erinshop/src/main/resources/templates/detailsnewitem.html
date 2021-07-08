@@ -1,0 +1,122 @@
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+    <div layout:fragment="mainContent">
+        <div class="row mt-5">
+            <div class="col-6 mx-auto">
+                <form th:action="@{'/admin/savenewitem'}" method="post" th:if="${newitem!=null}" class="mb-5">
+                    <input type="hidden" name="id" th:value="${newitem.id}">
+                    <div class="mt-2">
+                        <label>
+                            TITLE:
+                        </label>
+                        <input type="text" class="form-control mt-2" name = "newitem_title" th:value="${newitem.title}">
+                    </div>
+                    <div class="mt-2">
+                        <label>
+                            NAME:
+                        </label>
+                        <input type="text" class="form-control mt-2" name = "newitem_name" th:value="${newitem.name}">
+                    </div>
+                    <div class="mt-2">
+                        <label>
+                            PRICE:
+                        </label>
+                        <input type="text" class="form-control mt-2" name = "newitem_price" th:value="${newitem.price}">
+                    </div>
+                    <div class="mt-5">
+                        <button class="btn btn-success">SAVE NEW ITEM</button>
+                        <button type="button" class="btn btn-danger ml-2" data-bs-toggle="modal" data-bs-target="#deleteCityModal">
+                            DELETE NEW ITEM
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-3">
+                    <img th:src="@{'/image/' + ${newitem.newitemcardimg}}" alt="">
+                </div>
+
+                <div class="modal fade" id="deleteCityModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form th:action="@{'/admin/deletenewitem'}" method="post">
+                                <input type="hidden" name="id" th:value="${newitem.id}">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Delete T-shirt</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Are you sure?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                                    <button class="btn btn-danger">YES</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-6 mx-auto">
+                <table class="table table-striped">
+                    <tbody>
+                    <tr th:each="cat : ${newitem.categories}">
+                        <form th:action="@{'/admin/newitemremovecategory'}" method="post">
+                            <input type="hidden" name="category_id" th:value="${cat.id}">
+                            <input type="hidden" name="newitem_id" th:value="${newitem.id}">
+                            <td th:text="${cat.name}"></td>
+                            <td width="10%">
+                                <button class="btn btn-danger btn-sm"> - </button>
+                            </td>
+                        </form>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-6 mx-auto">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr th:each="cat : ${categories}">
+                            <form th:action="@{'/admin/newitemassigncategory'}" method="post">
+                                <input type="hidden" name="category_id" th:value="${cat.id}">
+                                <input type="hidden" name="newitem_id" th:value="${newitem.id}">
+                                <td th:text="${cat.name}"></td>
+                                <td width="10%">
+                                    <button class="btn btn-success btn-sm"> + </button>
+                                </td>
+                            </form>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-3 mb-5">
+            <div class="col-6 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <form th:action="@{'/admin/uploadimg'}" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="newitem_card_img" th:value="${newitem.id}">
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Choose Card Photo</label>
+                                <input type="file" class="form-control" id="formFile" name="card_img">
+                            </div>
+                            <div>
+                                <button class="btn btn-success">Upload</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

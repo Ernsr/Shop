@@ -1,0 +1,86 @@
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/main.html"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<div layout:fragment="mainContent">
+    <div class="row mt-5">
+        <div class="col-6 mx-auto">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${(param.success!=null)}">
+                Password update successfully!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${(param.error!=null)}">
+                Incorrect old password or new password!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <form th:action="@{'/admin/updatefullname'}" method="post">
+                <h3 class="text-center" th:text="${CURRENT_USER.getFullName()}"></h3>
+                <div class="mt-2">
+                    <label>
+                        NEW NAME:
+                    </label>
+                    <input type="text" name="new_name" class="form-control" required>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-success">
+                        UPDATE NAME
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5">
+        <div class="col-6 mx-auto">
+            <div class="card">
+                <img th:src="@{'/viewave/'+${CURRENT_USER.avatar}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <form th:action="@{'/admin/uploadava'}" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Choose Profile Photo</label>
+                            <input class="form-control" type="file" id="formFile" name="user_ava">
+                        </div>
+                        <div>
+                            <button class="btn btn-success">UPLOAD FILE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5">
+        <div class="col-6 mx-auto">
+            <form th:action="@{'/admin/updatepassword'}" method="post" class="mt-5">
+                <div class="mt-2">
+                    <label>
+                        OLD PASSWORD:
+                    </label>
+                    <input type="password" name="old_password" class="form-control mt-2" required>
+                </div>
+                <div class="mt-2">
+                    <label>
+                        NEW PASSWORD:
+                    </label>
+                    <input type="password" name="new_password" class="form-control mt-2" required>
+                </div>
+                <div class="mt-2">
+                    <label>
+                        RETYPE NEW PASSWORD:
+                    </label>
+                    <input type="password" name="re_new_password" class="form-control mt-2" required>
+                </div>
+                <div class="mt-3">
+                    <button class="btn btn-success">
+                        UPDATE PASSWORD
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+</html>

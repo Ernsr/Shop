@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout = "http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" th:href="@{'/css/style.css'}">
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/bootstrap.css'}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="venom">
+        <div sec:authorize="isAnonymous()">
+
+                <section class="header lock-padding" id="header" >
+                    <div class="container_fill">
+                        <div class="header_items">
+                            <div class="header_content">
+                                <div class="header_content-signin">
+                                    <form th:action="@{'/auth'}" method="post">
+                                        <a href="#popup" class="header__signin popup-link">
+                                            <img th:src="@{'/icon/Vector.png'}" alt="">
+                                            Вход / Регистрация
+                                        </a>
+                                    </form>
+                                </div>
+                                <div class="header_content-phone">
+                                    <a href="#popup" class="header__phone popup-link">
+                                        <img th:src="@{'/icon/Vector 1.png'}" alt="">
+                                        +7 (707) 117 60 15
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="header_search">
+                    <div class="container_fill">
+                        <div class="header_search-items">
+                            <div class="header_search-logo">
+                                <img src="#" alt="">
+                            </div>
+                            <div class="header_search-input">
+                                <form th:action="@{'/'}">
+                                    <input type="text" placeholder="Поиск" class="search-input">
+                                </form>
+                            </div>
+                            <div class="header_search-box">
+                                <div class="header_search-favorites">
+                                    <a th:href="@{'/'}">
+                                        <img th:src="@{'/icon/Vector 2.png'}" alt="">
+                                        Моя корзина (1)
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div class="header_box_elements">
+                    <div class="hr">
+                    </div>
+                </div>
+
+
+
+                <section class="header_elements">
+                    <div class="container_fill">
+                        <div class="header_elements-content">
+                            <ul>
+                                <li><a th:href="@{'/newitem'}">Новинки</a></li>
+                                <li><a th:href="@{'/tshirt'}">Футболки</a></li>
+                                <li><a th:href="@{'/shirts'}">Рубашки</a></li>
+                                <li><a th:href="@{'/sweatshirts'}">Свитшоты</a></li>
+                                <li><a th:href="@{'/jackets'}">Куртки</a></li>
+                                <li><a th:href="@{'/shorts'}">Шорты</a></li>
+                                <li><a th:href="@{'/pants'}">Брюки</a></li>
+                                <li><a th:href="@{'/accessories'}">Аксессуары</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+            <div class="mainContent">
+                    <div class="col-12" layout:fragment="mainContent">
+
+                    </div>
+                </div>
+
+
+            <section class="footer">
+                    <div class="footer_content">
+                        <div class="container_fill">
+                            <div class="footer_categories">
+                                <div class="footer_categories-items">
+                                    <ul>
+                                        <li><span>Категории</span></li>
+                                        <li><a th:href="@{'/newitem'}">Новинки</a></li>
+                                        <li><a th:href="@{'/tshirt'}">Футболки</a></li>
+                                        <li><a th:href="@{'/shirts'}">Рубашки</a></li>
+                                        <li><a th:href="@{'/sweatshirts'}">Свитшоты</a></li>
+                                        <li><a th:href="@{'/jackets'}">Куртки</a></li>
+                                        <li><a th:href="@{'/shorts'}">Шорты</a></li>
+                                        <li><a th:href="@{'/pants'}">Брюки</a></li>
+                                        <li><a th:href="@{'/accessories'}">Аксессуары</a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="buyers">
+                                    <div class="footer_categories-items">
+                                        <ul>
+                                            <li><span>Покупателям</span></li>
+                                            <li><a th:href="@{'/'}">Оплата</a></li>
+                                            <li><a th:href="@{'/'}">Доставка</a></li>
+                                            <li><a th:href="@{'/'}">Возврат</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="onyx">
+                                    <div class="footer_categories-items">
+                                        <ul>
+                                            <li><span>ONYX</span></li>
+                                            <li><a th:href="@{'/'}">О нас</a></li>
+                                            <li><a th:href="@{'/'}">Адрес</a></li>
+                                            <li><a th:href="@{'/'}">Новости</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="contact">
+                                    <div class="footer_categories-items">
+                                        <ul>
+                                            <li><span>Связаться с нами</span> </li>
+                                            <div class="contact_message">
+                                                <div class="contact_teltgram">
+                                                    <a th:href="@{'/'}"><img th:src="@{'/icon/10.png'}" alt=""></a>
+                                                </div>
+                                                <div class="contact_whatsapp">
+                                                    <a th:href="@{'/'}"><img th:src="@{'/icon/9.png'}" alt=""></a>
+                                                </div>
+                                            </div>
+                                            <li><span>Наши соц. сети</span> </li>
+                                            <div class="contact_message">
+                                                <div class="contact_instagram">
+                                                    <a th:href="@{'/'}"><img th:src="@{'/icon/13.png'}" alt=""></a>
+                                                </div>
+                                                <div class="contact_vk">
+                                                    <a th:href="@{'/'}"><img th:src="@{'/icon/12.png'}" alt=""></a>
+                                                </div>
+                                                <div class="contact_facebook">
+                                                    <a th:href="@{'/'}"><img th:src="@{'/icon/11.png'}" alt=""></a>
+                                                </div>
+                                            </div>
+                                        </ul>
+                                        <div class="rights">
+                                            <ul>
+                                                <li><a th:href="@{'/'}">ONYX. Все права защищены © 2021</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+        </div>
+
+    <div sec:authorize="isAuthenticated()">
+                <!-- Админ панель -->
+                <div class="container_fill">
+
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" th:href="@{'/'}">ADMIN X GOD</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" aria-current="page" th:href="@{'/admin/addcategory'}">ADD CATEGORY</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/profileadmin'}">PROFILE</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/addcity'}">ADD CITY</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" th:href="@{'/'}">ADD ITEM</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarNavtwo">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/addNewItem'}">ADD NEW ITEM</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/addTshirts'}">ADD T-SHIRTS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/addShirts'}">ADD SHIRTS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/addSweetshirts'}">ADD SWEET-SHIRTS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/addJackets'}">ADD JACKETS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/addShorts'}">ADD SHORTS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/add'}">ADD </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" th:href="@{'/admin/add'}">ADD </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+
+            <section class="header lock-padding">
+                <div class="container_fill">
+                    <div class="header_items">
+                        <div class="header_city">
+                            <!-- <div class="btn-group">
+                                <button class="btn btn-sm dropdown-toggle btn-outline-light" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Алматы
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a href="#">Астана</a></li>
+                                  <li><a href="#">Актобе</a></li>
+                                  <li><a href="#">Шымкент</a></li>
+                                  <li><a href="#">Семей</a></li>
+                                </ul>
+                              </div> -->
+                        </div>
+
+                        <div class="header_content">
+<!--                            <div class="">-->
+<!--                                <select class="form-control" name="city_id">-->
+<!--                                    <option th:each="ct :  ${'city'}" th:text="${ct.name + ' / ' + ct.code}" th:value="${ct.id}"></option>-->
+<!--                                    <option>Алматы</option>-->
+<!--                                    <option>Шымкент</option>-->
+<!--                                    <option>Семей</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+                            <div class="header_content-signin">
+                                <a th:href="@{'/profile'}" class="header__signin">
+                                    <img th:src="@{'/icon/Vector.png'}" alt="">
+                                    Profile
+                                </a>
+                            </div>
+                            <div class="header_content-signin">
+                                <a href="JavaScript:void(0)" class="header__signin popup-link" onclick="logout()">
+                                    <img th:src="@{'/icon/Vector.png'}" alt="">
+                                    Выход
+                                </a>
+                            </div>
+                            <div class="header_content-phone">
+                                <a href="#popup" class="header__phone popup-link">
+                                    <img th:src="@{'/icon/Vector 1.png'}" alt="">
+                                    +7 (707) 117 60 15
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="header_search">
+                <div class="container_fill">
+                    <div class="header_search-items">
+                        <div class="header_search-logo">
+                            <img src="#" alt="">
+                        </div>
+                        <div class="header_search-input">
+                            <form th:action="@{'/'}">
+                                <input type="text" placeholder="Поиск" class="search-input">
+                            </form>
+                        </div>
+                        <div class="header_search-box">
+                            <div class="header_search-favorites">
+                                <a href="#">
+                                    <img th:src="@{'/icon/Vector 2.png'}" alt="">
+                                    Моя корзина (1)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="header_box_elements">
+                <div class="hr">
+                </div>
+            </div>
+
+            <section class="header_elements">
+                <div class="container_fill">
+                    <div class="header_elements-content">
+                        <ul>
+                            <li><a th:href="@{'/newitem'}">Новинки</a></li>
+                            <li><a th:href="@{'/tshirt'}">Футболки</a></li>
+                            <li><a th:href="@{'/shirts'}">Рубашки</a></li>
+                            <li><a th:href="@{'/sweatshirts'}">Свитшоты</a></li>
+                            <li><a th:href="@{'/jackets'}">Куртки</a></li>
+                            <li><a th:href="@{'/shorts'}">Шорты</a></li>
+                            <li><a th:href="@{'/pants'}">Брюки</a></li>
+                            <li><a th:href="@{'/accessories'}">Аксессуары</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <form th:action="@{'/tologout'}" method="post" id="logoutForm"></form>
+            <script type="text/javascript">
+                function logout() {
+                    document.getElementById("logoutForm").submit();
+                }
+            </script>
+
+
+
+
+            <div class="mainContent">
+                <div class="col-12" layout:fragment="mainContent">
+
+                </div>
+            </div>
+
+
+
+            <section class="footer">
+                <div class="footer_content">
+                    <div class="container_fill">
+                        <div class="footer_categories">
+                            <div class="footer_categories-items">
+                                <ul>
+                                    <li><span>Категории</span></li>
+                                    <li><a th:href="@{'/newitem'}">Новинки</a></li>
+                                    <li><a th:href="@{'/tshirt'}">Футболки</a></li>
+                                    <li><a th:href="@{'/shirts'}">Рубашки</a></li>
+                                    <li><a th:href="@{'/sweatshirts'}">Свитшоты</a></li>
+                                    <li><a th:href="@{'/jackets'}">Куртки</a></li>
+                                    <li><a th:href="@{'/shorts'}">Шорты</a></li>
+                                    <li><a th:href="@{'/pants'}">Брюки</a></li>
+                                    <li><a th:href="@{'/accessories'}">Аксессуары</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="buyers">
+                                <div class="footer_categories-items">
+                                    <ul>
+                                        <li><span>Покупателям</span></li>
+                                        <li><a th:href="@{'/'}">Оплата</a></li>
+                                        <li><a th:href="@{'/'}">Доставка</a></li>
+                                        <li><a th:href="@{'/'}">Возврат</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="onyx">
+                                <div class="footer_categories-items">
+                                    <ul>
+                                        <li><span>ONYX</span></li>
+                                        <li><a th:href="@{'/'}">О нас</a></li>
+                                        <li><a th:href="@{'/'}">Адрес</a></li>
+                                        <li><a th:href="@{'/'}">Новости</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="contact">
+                                <div class="footer_categories-items">
+                                    <ul>
+                                        <li><span>Связаться с нами</span> </li>
+                                        <div class="contact_message">
+                                            <div class="contact_teltgram">
+                                                <a th:href="@{'/'}"><img th:src="@{'/icon/10.png'}" alt=""></a>
+                                            </div>
+                                            <div class="contact_whatsapp">
+                                                <a th:href="@{'/'}"><img th:src="@{'/icon/9.png'}" alt=""></a>
+                                            </div>
+                                        </div>
+                                        <li><span>Наши соц. сети</span> </li>
+                                        <div class="contact_message">
+                                            <div class="contact_instagram">
+                                                <a th:href="@{'/'}"><img th:src="@{'/icon/13.png'}" alt=""></a>
+                                            </div>
+                                            <div class="contact_vk">
+                                                <a th:href="@{'/'}"><img th:src="@{'/icon/12.png'}" alt=""></a>
+                                            </div>
+                                            <div class="contact_facebook">
+                                                <a th:href="@{'/'}"><img th:src="@{'/icon/11.png'}" alt=""></a>
+                                            </div>
+                                        </div>
+                                    </ul>
+                                    <div class="rights">
+                                        <ul>
+                                            <li><a th:href="@{'/'}">ONYX. Все права защищены © 2021</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+        <script type="text/javascript" th:src="@{'/js/script.js'}"></script>
+        <script type="text/javascript" th:src="@{'/js/bootstrap.js'}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>
